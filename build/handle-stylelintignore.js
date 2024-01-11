@@ -14,7 +14,7 @@ fs.writeFileSync(stylelintIgnoreFiles, "");
 // 如果项目不大，可以不用while的循环处理
 while (more) {
   const output = execSync(
-    'stylelint --cache --ignore-path .stylelintignore_old_files --custom-formatter build/stylelint-formatter.js "src/**/*.{css,scss,less}"'
+    'stylelint --cache --ignore-path .stylelintignore_files --custom-formatter build/stylelint-formatter.js "src/**/*.{css,scss,less}"'
   );
   const filesCheckedOut = output.match(/(?<=")[^,]*?(?=")/g) || [];
   if (filesCheckedOut.length === 0) {
