@@ -1,8 +1,11 @@
 {
   "scripts": {
-    "prebuild": "npm run lint",
+    "prebuild": "npm run lint && npm run css:lint",
     "lint": "eslint --ignore-path .eslintignore_files --ext .vue,.js,.jsx,.ts,.tsx src",
     "lint:fix": "eslint --ignore-path .eslintignore_files --fix --ext .vue,.js,.jsx,.ts,.tsx src",
-    "eslint:updateEslintIgnoreFiles": "node build/handle-eslintignore.js"
+    "eslint:updateEslintIgnoreFiles": "node build/handle-eslintignore.js",
+    "css:lint": "stylelint --ignore-path .stylelintignore_files 'src/**/*.{css,scss,less}'",
+    "css:lint:fix": "stylelint --ignore-path .stylelintignore_files 'src/**/*.{css,scss,less}' --fix",
+    "stylelint:updateStylelintIgnoreFiles": "node build/handle-stylelintignore.js"
   }
 }
